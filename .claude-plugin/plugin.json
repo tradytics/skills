@@ -1,7 +1,7 @@
 {
   "name": "tradytics",
   "displayName": "Tradytics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Options flow, dark pool prints, dealer exposure, volatility, prices, fundamentals, SEC filings, insider and Congress trades, and Kalshi and Polymarket odds, from Tradytics.",
   "author": {
     "name": "Tradytics",

@@ -31,7 +31,7 @@ Prints newest first (or largest): the live session by default (07:00 to 18:00 Ne
 | `price` | number | Price. |
 | `size` | integer | Shares. |
 | `notional_usd` | integer | Price times shares. |
-| `venue` | string | `dark_pool` or the exchange: `nyse`, `nasdaq`, `nyse_arca`, `cboe_bzx`, `iex` … |
+| `venue` | string | `dark_pool` or the exchange: `nyse`, `nasdaq`, `nyse_arca`, `cboe_bzx` … |
 | `conditions` | array | Sale conditions: `form_t`, `average_price`, `prior_reference_price`, `contingent`, `qualified_contingent`, `derivatively_priced`, `cross`, `closing`, `intermarket_sweep`, `seller`, `sold_out_of_sequence`, `stock_option`. |
 | `kind` | string | `trade`, `close` or `open`. |
 | `rank` | integer | Its place by notional among the stock's prints of its kind over the 12 months to its session (1 is the largest); null until the morning after. |
