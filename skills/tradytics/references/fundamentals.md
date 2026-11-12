@@ -34,9 +34,7 @@ The company, its size and its valuation at the price now.
 | `beta` | number | Beta. |
 | `year_high, year_low` | number | Highest and lowest price of the last 52 weeks. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/profile?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/profile?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Income statement
 
@@ -97,9 +95,7 @@ Quarterly, annual or trailing-twelve-month income statements from the 10-Qs and 
 | `claims_usd` | number | Insurers: losses, claims and policy benefits. |
 | `as_first_filed` | object | Lines a later filing changed, as first filed (`{"revenue_usd": …}`), or `null`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/income-statement?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/income-statement?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Balance sheet
 
@@ -165,9 +161,7 @@ Quarterly or annual balance sheets from the 10-Qs and 10-Ks, newest first, at th
 | `real_estate_investments_usd` | number | REITs: real estate, net. |
 | `as_first_filed` | object | Lines a later filing changed, as first filed (`{"revenue_usd": …}`), or `null`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/balance-sheet?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/balance-sheet?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Cash flow statement
 
@@ -222,9 +216,7 @@ Quarterly, annual or trailing-twelve-month cash flow statements, newest first: a
 | `free_cash_flow_usd` | number | Operating cash flow plus capital expenditure. |
 | `as_first_filed` | object | Lines a later filing changed, as first filed (`{"revenue_usd": …}`), or `null`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/cash-flow?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/cash-flow?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Ratios
 
@@ -259,9 +251,7 @@ Valuation, margin, return and balance sheet ratios on the trailing twelve months
 | `free_cash_flow_usd` | number | Trailing free cash flow. |
 | `average_volume` | integer | Average daily volume of the 30 sessions to the date, shares (`null` at the price now). |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/ratios?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/ratios?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Revenue segments
 
@@ -284,9 +274,7 @@ Revenue by product line or by region as reported, newest period first, largest s
 | `segment` | string | Segment as the company names it. |
 | `revenue_usd` | number | Its revenue. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/segments?symbol=AAPL&by=product&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/segments?symbol=AAPL&by=product&apiKey=YOUR_API_KEY`
 
 ## Earnings
 
@@ -311,9 +299,7 @@ Every report with EPS and revenue against the estimates, newest first. The next 
 | `revenue_usd, revenue_estimate_usd` | number | Reported revenue and the consensus. |
 | `revenue_surprise_pct` | number | Revenue against the consensus, %. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/earnings?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/earnings?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Analyst estimates
 
@@ -338,9 +324,7 @@ Consensus for each fiscal period not reported yet, nearest first.
 | `net_income_low_usd, net_income_average_usd, net_income_high_usd` | number | Net income. |
 | `revenue_analysts, eps_analysts` | integer | Analysts behind the revenue and EPS estimates. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/estimates?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/estimates?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Analysts
 
@@ -359,9 +343,7 @@ Ratings consensus, price targets and the latest 50 calls by firm.
 | `price_target` | object | `low`, `median`, `average`, `high`, $. |
 | `grades[]` | array | `date`, `firm`, `action` (`upgrade`, `downgrade`, `maintain` …), `previous_grade`, `grade` in the firm's own words. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/analysts?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/analysts?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Call transcripts
 
@@ -383,9 +365,7 @@ Earnings call transcripts: the latest, one quarter, or every quarter of a fiscal
 | `date` | string | Call date. |
 | `content` | string | The whole call, one speaker per paragraph. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/transcripts?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/transcripts?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## ETF holdings
 
@@ -407,6 +387,4 @@ Everything a fund holds, largest weight first, as its issuer last published.
 | `shares` | integer | Shares held. |
 | `market_value_usd` | number | Value of the position. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fundamentals/etf-holdings?symbol=QQQ&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fundamentals/etf-holdings?symbol=QQQ&apiKey=YOUR_API_KEY`

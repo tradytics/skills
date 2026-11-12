@@ -21,9 +21,7 @@ The ~6,000 symbols Tradytics tracks, most traded first. Search by ticker or name
 | `name` | string | Short company or fund name. |
 | `kind` | string | `stock`, `etf`, `adr` or `index`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/symbols?q=apple&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/symbols?q=apple&apiKey=YOUR_API_KEY`
 
 ## Symbol
 
@@ -43,6 +41,4 @@ One symbol: its name, kind, sector, industry, size and live quote.
 | `intraday_bars` | boolean | Whether it has intraday bars (Bars). |
 | `quote` | object | The live quote as in Quotes: `date` (the session it's from), `price`, `change`, `change_pct`, `previous_close`, `volume`, `dollar_volume_usd`, `gap_pct`, `relative_volume`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/symbols/NVDA?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/symbols/NVDA?apiKey=YOUR_API_KEY`

@@ -32,9 +32,7 @@ Signals newest first, today's live.
 | `status` | string | `open` or `settled` (at expiry). |
 | `return, best_return` | number | Its latest mark, or its settlement, and its best mark so far against the ask, as decimals (0.25 is 25%). |
 
-```bash
-curl "https://tradytics.com/api/public/v1/signals?limit=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/signals?limit=10&apiKey=YOUR_API_KEY`
 
 ## Signal
 
@@ -62,9 +60,7 @@ One signal with the numbers its pattern read, the prints behind it and every mar
 | `prints[]` | array | The contract's prints and the underlying's flow in the 15 minutes before it fired: `role`, `time`, `symbol`, `type`, `strike`, `expiry`, `price`, `bid`, `ask`, `size`, `premium_usd`, `side` (`bought`, `sold` or `mid`), `sweep`, `open_interest`, `iv`. |
 | `marks[]` | array | `time` and `value`: the NBBO mid every five minutes, then the settlement. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/signals/513?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/signals/513?apiKey=YOUR_API_KEY`
 
 ## Signal performance
 
@@ -86,6 +82,4 @@ Each pattern's record from every signal's latest mark or settlement, losers incl
 | `win_rate` | number | Share with a gain, decimal. |
 | `average_return, median_return, best_return, worst_return` | number | Returns against the ask, decimals. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/signals/performance?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/signals/performance?apiKey=YOUR_API_KEY`

@@ -27,9 +27,7 @@ Reports by date then company size, with estimates and results. Actuals use the s
 | `revenue_estimate_usd, revenue_actual_usd` | integer | Revenue expected and reported. |
 | `market_cap_usd` | integer | Market cap. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/calendar/earnings?from=2026-11-09&to=2026-11-13&limit=20&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/calendar/earnings?from=2026-11-09&to=2026-11-13&limit=20&apiKey=YOUR_API_KEY`
 
 ## Economic calendar
 
@@ -56,6 +54,4 @@ Economic releases and central bank events by time. FMP supplies the readings and
 | `change, change_pct` | number | The actual against the prior. |
 | `unit` | string | Unit, e.g. `%` or `K`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/calendar/economic?impact=high&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/calendar/economic?impact=high&apiKey=YOUR_API_KEY`

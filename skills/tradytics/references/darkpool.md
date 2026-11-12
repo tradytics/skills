@@ -36,9 +36,7 @@ Prints newest first (or largest): the live session by default (07:00 to 18:00 Ne
 | `kind` | string | `trade`, `close` or `open`. |
 | `rank` | integer | Its place by notional among the stock's prints of its kind over the 12 months to its session (1 is the largest); null until the morning after. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/darkpool/prints?symbol=AAPL&from=2026-10-28&to=2026-11-04&limit=3&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/darkpool/prints?symbol=AAPL&from=2026-10-28&to=2026-11-04&limit=3&apiKey=YOUR_API_KEY`
 
 ## Dark pool levels
 
@@ -62,9 +60,7 @@ The price levels with the most dark pool block money over the last `window` sess
 | `share` | number | Of the window's dark pool notional. |
 | `distance_pct` | number | From the last close, %. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/darkpool/levels?symbol=AAPL&window=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/darkpool/levels?symbol=AAPL&window=10&apiKey=YOUR_API_KEY`
 
 ## Dark pool by day
 
@@ -92,6 +88,4 @@ Session totals newest first: one stock's sessions (default the last year, zeros 
 | `close` | number | Close (last for the live session). |
 | `rank` | integer | The session's place by `dark_notional_usd` among the stock's sessions over the 12 months to it; null without dark pool trades. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/darkpool/daily?symbol=AAPL&from=2026-10-01&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/darkpool/daily?symbol=AAPL&from=2026-10-01&apiKey=YOUR_API_KEY`

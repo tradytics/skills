@@ -31,9 +31,7 @@ Quotes for up to 100 distinct tickers, or the full market ranked by dollar volum
 | `gap_pct` | number | The open against the previous close (before the open, the pre-market move); null before the first trade. |
 | `relative_volume` | number | Today's volume over the 20-session average; null before the first trade. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/stocks/quotes?symbol=AAPL%2CMSFT%2CNVDA&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/stocks/quotes?symbol=AAPL%2CMSFT%2CNVDA&apiKey=YOUR_API_KEY`
 
 ## Bars
 
@@ -57,9 +55,7 @@ Split-adjusted OHLCV bars with VWAP, oldest first, including the forming bar. Da
 | `volume` | integer | Shares; null for an index. |
 | `vwap` | number | Volume-weighted average price of the bar; null for an index. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/stocks/bars?symbol=SPY&timeframe=1d&limit=5&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/stocks/bars?symbol=SPY&timeframe=1d&limit=5&apiKey=YOUR_API_KEY`
 
 ## Market snapshot
 
@@ -88,9 +84,7 @@ Every listed stock, fund and index at once with its move, volume and size, sorte
 | `volume, dollar_volume_usd` | integer | Shares and dollars traded that session. |
 | `relative_volume` | number | Today's volume over the 20-session average; null before the first trade. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/stocks/snapshot?sort=change_pct&min_market_cap_usd=2000000000&min_dollar_volume_usd=20000000&limit=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/stocks/snapshot?sort=change_pct&min_market_cap_usd=2000000000&min_dollar_volume_usd=20000000&limit=10&apiKey=YOUR_API_KEY`
 
 ## Technicals
 
@@ -112,9 +106,7 @@ A technical rating with the signals, moving averages and oscillators behind it, 
 | `macd, macd_signal, adx, atr` | number | MACD (12, 26, 9) and its signal line, ADX, average true range in dollars. |
 | `seasonality[]` | array | `month`, `up_years`, `down_years`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/stocks/technicals?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/stocks/technicals?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Short interest
 
@@ -137,9 +129,7 @@ Short interest at every FINRA settlement date, twice a month, newest first.
 | `average_daily_volume` | integer | Average daily shares traded. |
 | `days_to_cover` | number | Short interest over average daily volume. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/stocks/short-interest?symbol=AAPL&limit=5&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/stocks/short-interest?symbol=AAPL&limit=5&apiKey=YOUR_API_KEY`
 
 ## Short volume
 
@@ -162,9 +152,7 @@ Daily off-exchange short sale volume reported to FINRA, newest first.
 | `total_volume` | integer | All shares reported. |
 | `short_volume_ratio` | number | Short volume over total volume, decimal. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/stocks/short-volume?symbol=AAPL&limit=5&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/stocks/short-volume?symbol=AAPL&limit=5&apiKey=YOUR_API_KEY`
 
 ## Dividends and splits
 
@@ -193,6 +181,4 @@ Dividends and splits, newest first: one symbol's whole history, or the whole mar
 | `split_type` | string | `forward_split`, `reverse_split` or `stock_dividend`. |
 | `adjustment_factor` | number | What earlier prices are multiplied by for this action. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/stocks/corporate-actions?symbol=AAPL&limit=5&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/stocks/corporate-actions?symbol=AAPL&limit=5&apiKey=YOUR_API_KEY`

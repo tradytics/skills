@@ -11,14 +11,12 @@ If the Tradytics connector's tools are available (`get_options_flow`, `get_deale
 
 ## Key
 
-- Read it from `TRADYTICS_API_KEY`. If it is unset, ask the user to copy theirs from https://tradytics.com/developer/keys and export it. Calls answer on Tradytics Pro.
-- Send it as the `apiKey` query parameter. Never print it, log it or write it to a file.
+- Every call takes the user's Tradytics API key as the `apiKey` query parameter. Ask the user for it; they copy it from https://tradytics.com/developer/keys. Calls answer on Tradytics Pro.
+- Never print the key, log it or write it into a file. In code you write for the user, load it from their own config.
 
-```bash
-curl -s "https://tradytics.com/api/public/v1/options/flow?symbol=NVDA&min_premium=1000000&limit=5&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/flow?symbol=NVDA&min_premium=1000000&limit=5&apiKey=YOUR_API_KEY`
 
-In code, use the SDKs: `pip install tradytics` (`from tradytics import Client`) or `npm install tradytics` (`import Tradytics from 'tradytics'`). Both read `TRADYTICS_API_KEY`, page, stream and retry ([basics](references/basics.md)).
+In code, use the SDKs: `pip install tradytics` (`Client("YOUR_API_KEY")`) or `npm install tradytics` (`new Tradytics('YOUR_API_KEY')`). One method per endpoint (`client.options.flow(symbol="NVDA")`), `client.paginate` for every page, `client.stream` for new prints, retries on 429 and 5xx.
 
 ## How to work
 

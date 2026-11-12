@@ -1,102 +1,3 @@
-# Libraries
-
-Official clients for Python and JavaScript: one method per endpoint, retries on rate limits, paging and streaming built in. No dependencies.
-
-## Install
-
-```bash
-pip install tradytics
-```
-
-```bash
-npm install tradytics
-```
-
-Both read your key from `TRADYTICS_API_KEY`, or take it as `Client(api_key=...)` and `new Tradytics({ apiKey })`.
-
-## Make a call
-
-```python
-from tradytics import Client
-
-client = Client()
-
-flow = client.options.flow(symbol="NVDA", min_premium=1_000_000, opening=True)
-bars = client.stocks.bars(symbol="SPY", timeframe="5m", limit=500)
-gamma = client.options.exposure(symbol="SPY", greek="gamma")
-income = client.fundamentals.income_statement(symbol="AAPL", period="quarter")
-```
-
-```js
-import Tradytics from 'tradytics'
-
-const client = new Tradytics()
-
-const flow = await client.options.flow({ symbol: 'NVDA', min_premium: 1_000_000, opening: true })
-const bars = await client.stocks.bars({ symbol: 'SPY', timeframe: '5m', limit: 500 })
-```
-
-Answers are the API's JSON as it comes: `data` and `meta` for objects, plus `next_cursor` and `next_url` for lists. Every endpoint page shows its call in both.
-
-## Resources
-
-| Resource | Covers |
-| --- | --- |
-| `options` | Flow, contracts and chains, dealer positioning, volatility |
-| `darkpool` | Prints, levels, daily totals |
-| `stocks` | Quotes, bars, snapshot, technicals, short interest, corporate actions |
-| `fundamentals` | Profiles, statements, ratios, segments, earnings, estimates, analysts, transcripts |
-| `filings` | SEC filings, sections, full-text search |
-| `disclosures` | Insiders, institutions, activists, Congress |
-| `kpis` | Company operating numbers |
-| `market` | Status, indices, breadth, sectors |
-| `calendar` | Earnings and economic calendars |
-| `news` | News |
-| `screener` | The stock screener |
-| `signals` | Signals and their record |
-| `insights` | Written market reads |
-| `probabilities` | Kalshi and Polymarket |
-| `fund` | The AI Fund |
-| `symbols` | Symbol search |
-| `account` | Your portfolio, backtests, dashboards and watchlists |
-
-## Every page
-
-```python
-for p in client.paginate(client.options.flow, symbol="TSLA", min_premium=500_000, from_="2026-10-01"):
-    print(p["time"], p["premium_usd"])
-```
-
-```js
-for await (const p of client.paginate(client.options.flow, { symbol: 'TSLA', min_premium: 500_000, from: '2026-10-01' })) console.log(p.time, p.premium_usd)
-```
-
-## Stream new prints
-
-`stream` polls options flow or dark pool prints with `since` and yields each new print once, oldest first.
-
-```python
-for p in client.stream(client.options.flow, min_premium=250_000):
-    print(p["symbol"], p["type"], p["strike"], p["premium_usd"])
-```
-
-```js
-for await (const p of client.stream(client.options.flow, { min_premium: 250_000 })) console.log(p.symbol, p.premium_usd)
-```
-
-## Errors and retries
-
-A failed call raises `TradyticsError` with `status`, `code`, `message` and the request id. `429` and `5xx` answers are retried up to three times, waiting as `Retry-After` says; the daily quota is not retried.
-
-## Coding agents
-
-The [Tradytics skill](https://skills.sh/tradytics/skills/tradytics) gives Claude Code, Codex, Cursor and other agents every endpoint, its parameters and fields, so they call the API without reading these pages.
-
-```bash
-npx skills add tradytics/skills
-```
-
-
 # API keys
 
 Send your API key in the URL as the `apiKey` query parameter.
@@ -202,9 +103,7 @@ Long lists come a page at a time, newest first.
 
 Ask for up to `limit` rows. When there are more, send `next_cursor` back as `cursor` with the same parameters, or call `next_url` with your key. Both fields are `null` on the last page.
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/flow?symbol=SPY&date=2026-10-29&limit=1000&cursor=2026-10-29:60911822&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/flow?symbol=SPY&date=2026-10-29&limit=1000&cursor=2026-10-29:60911822&apiKey=YOUR_API_KEY`
 
 Cursors are opaque: pass them as they come. A page with filters can hold fewer rows than `limit` and still have a next page, so follow `next_cursor` until it is `null`.
 
@@ -218,7 +117,7 @@ import os, time, requests
 last = 0
 while True:
     r = requests.get("https://tradytics.com/api/public/v1/options/flow", params={"since": last, "min_premium": 250000,
-                     "apiKey": os.environ["TRADYTICS_API_KEY"]}).json()
+                     "apiKey": "YOUR_API_KEY"}).json()
     for p in r["data"]:
         print(p["time"], p["symbol"], p["type"], p["strike"], p["premium_usd"])
         last = p["id"]

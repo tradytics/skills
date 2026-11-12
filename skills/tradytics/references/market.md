@@ -16,9 +16,7 @@ Whether the market is open now, the next open and close, and the holidays and ea
 | `next_open_at, next_close_at` | string | The next regular open and close, UTC. |
 | `holidays[]` | array | `date`, `name`, `status` (`closed` or `early_close`), and an early close's `open_at` and `close_at`, UTC. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/market/status?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/market/status?apiKey=YOUR_API_KEY`
 
 ## Indices
 
@@ -34,9 +32,7 @@ The S&P 500, Nasdaq 100, Russell 2000, Dow Jones Industrial Average and VIX, liv
 | `previous_close` | number | The previous close. |
 | `time` | string | When the level was taken, UTC. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/market/indices?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/market/indices?apiKey=YOUR_API_KEY`
 
 ## Breadth
 
@@ -52,9 +48,7 @@ How many liquid stocks and ADRs ($20M+ traded today, funds left out) are up and 
 | `equal_weight_change_pct` | number | The equal-weight S&P 500 (RSP) today. |
 | `cap_weight_change_pct` | number | The S&P 500 (SPY) today. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/market/breadth?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/market/breadth?apiKey=YOUR_API_KEY`
 
 ## Sectors and themes
 
@@ -78,6 +72,4 @@ The 11 sectors through their SPDR ETFs, or two dozen investing themes as equal-w
 | `members, members_up, members_down, members_flat` | integer | Members ($10B+ companies for sectors) and counts with positive, negative and unchanged returns. |
 | `best[], worst[]` | array | The top and bottom three members today: `symbol`, `name`, `change_pct`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/market/sectors?type=sector&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/market/sectors?type=sector&apiKey=YOUR_API_KEY`

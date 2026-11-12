@@ -24,9 +24,7 @@ Every live question with a tight book and trades in the last day, with its leadi
 | `outcomes[]` | array | `market` (Kalshi ticker or Polymarket condition id), `label`, `kind`, `level`, `level_high`, `resolves_at`, `chance` (0.62 is 62%). |
 | `distribution` | object | `kind` and `bins` (`low`, `high`, `chance`): the crowd's distribution of the outcome. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/probabilities?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/probabilities?apiKey=YOUR_API_KEY`
 
 ## Question
 
@@ -50,9 +48,7 @@ One open question with every outcome, and for an earnings question the stock's p
 | `distribution` | object | `kind` and `bins` (`low`, `high`, `chance`): the crowd's distribution of the outcome. |
 | `reports` | object | Earnings questions: `beats` of `rated`, `up`, `median_move_pct`, and `rows` (`date`, `eps`, `eps_estimate`, `beat`, `surprise_pct`, `move_pct`). |
 
-```bash
-curl "https://tradytics.com/api/public/v1/probabilities/nvda-close-2026-11-30?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/probabilities/nvda-close-2026-11-30?apiKey=YOUR_API_KEY`
 
 ## Outcome history
 
@@ -75,9 +71,7 @@ One outcome's chance through time, live or settled: the last trade in each hour 
 | `interval` | string | `hour` or `day`. |
 | `points[]` | array | `time` (UTC) and `chance`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/probabilities/KXINXU-26NOV04H1600-T7769.9999/history?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/probabilities/KXINXU-26NOV04H1600-T7769.9999/history?apiKey=YOUR_API_KEY`
 
 ## S&P 500 outlook
 
@@ -91,9 +85,7 @@ Where Kalshi and Polymarket put the S&P 500 at each date they price, from the ne
 | `horizons[]` | array | `resolves_at`, `horizon` (`close`, `week`, `month`, `year`), `basis` (`close` or `touch`), `levels` (`level`, `chance_at_or_above`). |
 | `track[]` | array | `symbol` (`SPX` or `NDX`), `date`, `called_low`, `called_middle`, `called_high` (the crowd at 10 AM) and `close`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/probabilities/outlook?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/probabilities/outlook?apiKey=YOUR_API_KEY`
 
 ## Settled markets
 
@@ -120,6 +112,4 @@ Every finance market Kalshi has settled since June 2021, and Polymarket's, the l
 | `result` | string | Kalshi `yes` or `no`; Polymarket the winning outcome. |
 | `settled_value` | number | Kalshi: the value it settled on. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/probabilities/settled?source=kalshi&series=KXINXU&limit=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/probabilities/settled?source=kalshi&series=KXINXU&limit=10&apiKey=YOUR_API_KEY`

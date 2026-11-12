@@ -41,9 +41,7 @@ A symbol's standard contracts (100 shares) with quotes, volume, open interest, I
 | `underlying_price` | number | The stock's price now; with `date`, its close. |
 | `updated_at` | string | Time of the quote, UTC. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/chain?symbol=SPY&max_dte=7&min_otm_pct=-1&max_otm_pct=1&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/chain?symbol=SPY&max_dte=7&min_otm_pct=-1&max_otm_pct=1&apiKey=YOUR_API_KEY`
 
 ## Expirations
 
@@ -63,9 +61,7 @@ Every listed expiry, soonest first, with its contracts, strikes and cycle.
 | `strikes` | integer | Distinct strikes. |
 | `cycle` | string | `monthly` (the third Friday), `quarterly` (a quarter's last weekday) or `weekly`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/expirations?symbol=TSLA&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/expirations?symbol=TSLA&apiKey=YOUR_API_KEY`
 
 ## Contracts
 
@@ -116,9 +112,7 @@ Contracts of the ~4,000 most traded stocks and ETFs at the latest close (or `dat
 | `iv` | number | Implied volatility. At a close: Black-Scholes on the mid, 4% rate, each expiry's carry (0 to 100%) from put-call parity. |
 | `delta, gamma, theta, vega` | number | Greeks; theta per day, vega per vol point. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/contracts?sort=premium&limit=5&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/contracts?sort=premium&limit=5&apiKey=YOUR_API_KEY`
 
 ## Contract
 
@@ -156,9 +150,7 @@ One contract now: the quote with sizes, the last trade, the session's range and 
 | `break_even_price` | number | Strike plus (call) or minus (put) the mid. |
 | `updated_at` | string | Time of the quote, UTC. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/contracts/SPY271217C00750000?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/contracts/SPY271217C00750000?apiKey=YOUR_API_KEY`
 
 ## Contract bars
 
@@ -183,9 +175,7 @@ OHLCV bars with VWAP for one contract, oldest first. Without `from`: 5 days of `
 | `vwap` | number | Volume-weighted average price. |
 | `trades` | integer | Trades in the bar. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/contracts/SPY271217C00750000/bars?timeframe=1d&limit=5&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/contracts/SPY271217C00750000/bars?timeframe=1d&limit=5&apiKey=YOUR_API_KEY`
 
 ## Open interest
 
@@ -209,6 +199,4 @@ Call and put open interest by strike or by expiry with the change since the sess
 | `call_open_interest, put_open_interest` | integer | Open contracts. |
 | `call_open_interest_change, put_open_interest_change` | integer | Change since the session before. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/open-interest?symbol=SPY&by=expiry&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/open-interest?symbol=SPY&by=expiry&apiKey=YOUR_API_KEY`

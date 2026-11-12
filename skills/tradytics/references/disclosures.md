@@ -38,9 +38,7 @@ Every Form 4 transaction, newest filing first: officers, directors and 10% owner
 | `rule_10b5_1` | boolean | The filing's Rule 10b5-1 plan box; null on forms without it (before April 2023). |
 | `accession` | string | The Form 4 filing. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/disclosures/insiders?symbol=NVDA&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/disclosures/insiders?symbol=NVDA&apiKey=YOUR_API_KEY`
 
 ## Institutional holders
 
@@ -74,9 +72,7 @@ Every institution that reported a stock on its 13F for a quarter, biggest positi
 | `filed_at` | string | When the 13F was accepted, UTC. |
 | `accession` | string | The 13F filing. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/disclosures/institutions?symbol=AAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/disclosures/institutions?symbol=AAPL&apiKey=YOUR_API_KEY`
 
 ## Institution holdings
 
@@ -109,9 +105,7 @@ One institution's whole 13F book for a quarter, biggest position first, with the
 | `filed_at` | string | When the 13F was accepted, UTC. |
 | `accession` | string | The 13F filing. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/disclosures/institutions/1067983?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/disclosures/institutions/1067983?apiKey=YOUR_API_KEY`
 
 ## Activist stakes
 
@@ -141,9 +135,7 @@ Schedule 13D (activist) and 13G (passive) filings of holders of 5% or more, newe
 | `cusip` | string | CUSIP of the class. |
 | `accession` | string | The filing. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/disclosures/activists?form=13d&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/disclosures/activists?form=13d&apiKey=YOUR_API_KEY`
 
 ## Congress trades
 
@@ -175,6 +167,4 @@ Stock trades members of the House and Senate disclosed, newest disclosure first.
 | `transaction_date, disclosure_date` | string | `YYYY-MM-DD`. |
 | `link` | string | The report. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/disclosures/congress?symbol=NVDA&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/disclosures/congress?symbol=NVDA&apiKey=YOUR_API_KEY`

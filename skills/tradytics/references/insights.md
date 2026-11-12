@@ -19,9 +19,7 @@ The market in a headline, a summary and three stories, with the week's events ah
 | `sections[]` | array | `title`, `summary` and `symbols` per story. |
 | `events` | array | Upcoming events, one line each. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/insights/market?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/insights/market?apiKey=YOUR_API_KEY`
 
 ## Why it's moving
 
@@ -41,6 +39,4 @@ Each stock's latest story behind its move, newest first: the 100 largest compani
 | `title, summary` | string | The story in a line and a paragraph. |
 | `time` | string | Written, UTC. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/insights/movers?symbol=NVDA%2CAAPL&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/insights/movers?symbol=NVDA%2CAAPL&apiKey=YOUR_API_KEY`

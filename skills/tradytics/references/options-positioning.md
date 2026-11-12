@@ -33,9 +33,7 @@ The latest run of the dealer model (every 5 minutes of the session) or the one s
 | `put` | number | Puts' exposure (null for vanna and charm). |
 | `net` | number | Both. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/exposure?symbol=SPY&greek=gamma&dte=7&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/exposure?symbol=SPY&greek=gamma&dte=7&apiKey=YOUR_API_KEY`
 
 ## Exposure history
 
@@ -56,6 +54,4 @@ Daily dealer net delta and net gamma against the close, each session of about 18
 | `net_delta` | integer | Dealer delta, shares, every expiry. |
 | `net_gamma_usd` | integer | Dealer gamma, dollars of delta per 1% move. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/exposure/history?symbol=SPY&from=2026-10-01&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/exposure/history?symbol=SPY&from=2026-10-01&apiKey=YOUR_API_KEY`

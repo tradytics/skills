@@ -25,6 +25,4 @@ Stories newest first, all of them or one symbol's. Default the last 30 days.
 | `source, url` | string | Publisher and the article. |
 | `sentiment` | string | `positive`, `negative`, `neutral` or `mixed`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/news?symbol=NVDA&limit=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/news?symbol=NVDA&limit=10&apiKey=YOUR_API_KEY`

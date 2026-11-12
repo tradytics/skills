@@ -30,6 +30,6 @@ Market data answers on Tradytics Pro.
 
 ## Data
 
-The connector sends the tickers, dates and filters of each request to tradytics.com and returns market data; you sign in through Tradytics' OAuth page, and the connection shows on your [API keys](https://tradytics.com/developer/keys) page, where you can end it. The skill, in code, sends requests to `https://tradytics.com/api/public/v1` with your API key from `TRADYTICS_API_KEY`, which you set yourself. Nothing is sent anywhere else, and the plugin stores nothing. [Privacy policy](https://tradytics.com/privacy-policy).
+The connector sends the tickers, dates and filters of each request to tradytics.com and returns market data; you sign in through Tradytics' OAuth page, and the connection shows on your [API keys](https://tradytics.com/developer/keys) page, where you can end it. Without the connector, the skill sends requests to `https://tradytics.com/api/public/v1` with the API key you give it. Nothing is sent anywhere else, and the plugin stores nothing. [Privacy policy](https://tradytics.com/privacy-policy).
 
 Generated from the Tradytics docs, so it changes with the API.

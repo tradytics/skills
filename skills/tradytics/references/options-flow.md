@@ -53,9 +53,7 @@ Prints newest first: the live session by default, one session with `date`, or a 
 | `delta` | number | Delta (puts negative). |
 | `events` | array | `pre_earnings`, `post_earnings`, `ex_dividend`, `ssr`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/flow?symbol=NVDA&from=2026-11-03&min_premium=500000&limit=3&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/flow?symbol=NVDA&from=2026-11-03&min_premium=500000&limit=3&apiKey=YOUR_API_KEY`
 
 ## One print
 
@@ -96,9 +94,7 @@ One print with the session's flow up to it, and what the contract did after: its
 | `context` | object | The session up to and including the print: `session`, `contract_prints`, `contract_premium_usd`, `contract_net_premium_usd` (bought minus sold), `symbol_prints`, `symbol_premium_usd`, `symbol_net_premium_usd` (bullish minus bearish). |
 | `outcome` | object | `next_date`, `next_close` and `next_return_pct` (null if it didn't trade); `final_date`, `final_price` (intrinsic value at the expiry close once `expired`, at the open for AM-settled index monthlies and VIX, else the latest close) and `final_return_pct`; returns are from the print's price. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/flow/61360107?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/flow/61360107?apiKey=YOUR_API_KEY`
 
 ## Flow timeline
 
@@ -127,9 +123,7 @@ Net call and put premium, net delta and put/call per interval, oldest first, wit
 | `prints` | integer | Prints. |
 | `price` | number | The underlying's close at the interval's end (one symbol, or SPY market-wide). |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/flow/timeline?symbol=NVDA&interval=1d&from=2026-10-28&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/flow/timeline?symbol=NVDA&interval=1d&from=2026-10-28&apiKey=YOUR_API_KEY`
 
 ## Flow leaders
 
@@ -158,9 +152,7 @@ Single stocks, or their sectors, ranked by net premium for the latest session or
 | `change_pct` | number | The stock's change, % (a sector's: market-cap weighted). |
 | `price` | number | Close or last (null by sector). |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/flow/leaders?direction=bullish&limit=5&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/flow/leaders?direction=bullish&limit=5&apiKey=YOUR_API_KEY`
 
 ## Flow by strike
 
@@ -188,9 +180,7 @@ Premium by strike and expiry for one underlying over the latest session, `date` 
 | `premium_usd` | integer | All premium. |
 | `prints` | integer | Prints. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/flow/strikes?symbol=NVDA&from=2026-10-30&to=2026-11-05&limit=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/flow/strikes?symbol=NVDA&from=2026-10-30&to=2026-11-05&limit=10&apiKey=YOUR_API_KEY`
 
 ## Unusual contracts
 
@@ -229,6 +219,4 @@ Contracts whose session volume ran past their open interest, with volume against
 | `iv` | number | Implied volatility at the last print. |
 | `last_time` | string | Last print, UTC. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/unusual?limit=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/unusual?limit=10&apiKey=YOUR_API_KEY`

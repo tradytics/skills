@@ -16,9 +16,7 @@ Your linked brokerage accounts, read only: holdings, options and recent orders, 
 | `options[]` | array | `account_id`, `contract`, `symbol`, `type`, `strike`, `expiry`, `days_to_expiry`, `contracts`, `multiplier`, `price`, `average_cost`, `value`, `cost`, `pnl`, `pnl_pct`, `underlying_price`, `underlying_change_pct`. |
 | `orders[]` | array | The latest 80 order legs: `id`, `account_id`, `time`, `status`, `open`, `action`, `symbol`, `type`, `strike`, `expiry`, `quantity`, `filled`, `price`, `order_type`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/account/portfolio?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/account/portfolio?apiKey=YOUR_API_KEY`
 
 ## Your trades
 
@@ -33,9 +31,7 @@ A year of closed round trips, newest first, with dividends and fees per account.
 | `income` | object | Per account id: `dividends` and `fees`. |
 | `trips[]` | array | `id`, `account_id`, `kind`, `symbol`, `type`, `strike`, `expiry`, `side`, `quantity`, `opened_date`, `closed_date`, `open_price`, `close_price`, `pnl`, `pnl_pct`, `days_held`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/account/portfolio/trades?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/account/portfolio/trades?apiKey=YOUR_API_KEY`
 
 ## Your factors
 
@@ -53,9 +49,7 @@ Your book's risk by source, beta, value at risk and tracking error, each holding
 | `stress_tests[]` | array | `name`, `story`, `start_date`, `end_date`, `sp500_return`, `portfolio_return`, `market_part`, `other_part`, `change` (in money). |
 | `attribution[]` | array | `window` (`1D` to `1Y`), `days`, `portfolio_return`, `sp500_return`, `market_part`, `style_part`, `sector_part`, `specific_part`, `options_part`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/account/portfolio/factors?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/account/portfolio/factors?apiKey=YOUR_API_KEY`
 
 ## Your backtests
 
@@ -75,9 +69,7 @@ Your backtests, the latest first.
 | `updated_at` | string | Last activity, UTC. |
 | `match` | string | With `q`: the words around the first hit. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/account/backtests?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/account/backtests?apiKey=YOUR_API_KEY`
 
 ## A backtest
 
@@ -95,9 +87,7 @@ One backtest: the conversation and every run it made.
 | `messages[]` | array | `role`, `content`, `time`. |
 | `runs[]` | array | `run_id`, `name`, `summary`, `spec`; `stats` (`strategy` and `benchmark`: `total_return`, `cagr`, `volatility`, `sharpe`, `sortino`, `max_drawdown`, `max_drawdown_start`, `max_drawdown_end`, `best_year`, `worst_year`; `start_date`, `end_date`, `fills`, `round_trips`, `win_rate`, `beta`, `fees_usd`); `equity` (`date`, `equity_usd`, `benchmark_usd`); `round_trips` (`symbol`, `entry_date`, `exit_date`, `shares`, `entry_price`, `exit_price`, `pnl_usd`, `return`, `days_held`, `exit_reason`). |
 
-```bash
-curl "https://tradytics.com/api/public/v1/account/backtests/{id}?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/account/backtests/{id}?apiKey=YOUR_API_KEY`
 
 ## Your dashboards
 
@@ -113,9 +103,7 @@ Your dashboards.
 | `widgets` | integer | Widgets it holds. |
 | `copied_from` | string | The public dashboard it was copied from. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/account/dashboards?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/account/dashboards?apiKey=YOUR_API_KEY`
 
 ## A dashboard
 
@@ -133,9 +121,7 @@ One dashboard's layout on a 12-column grid.
 | `widgets[]` | array | `id`, `widget`, `symbol`, `link_group`, `x`, `y`, `width`, `height`, `auto_height`, `options`. |
 | `links[]` | array | `link_group` and the `symbol` its widgets share. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/account/dashboards/{id}?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/account/dashboards/{id}?apiKey=YOUR_API_KEY`
 
 ## Your watchlists
 
@@ -149,6 +135,4 @@ Your watchlists, the default first, each with its symbols in the order added.
 | `default` | boolean | Whether it is your default list. |
 | `symbols` | array | Its tickers. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/account/watchlists?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/account/watchlists?apiKey=YOUR_API_KEY`

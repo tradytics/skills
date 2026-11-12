@@ -28,9 +28,7 @@ One symbol's 30-day ATM IV against its past year and its realized vol, the ATM t
 | `term[]` | array | `expiry`, `dte`, `atm_iv`. |
 | `skew[]` | array | `expiry`, `dte`, `put_25d_iv`, `call_25d_iv`, `skew` (put minus call). |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/volatility?symbol=NVDA&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/volatility?symbol=NVDA&apiKey=YOUR_API_KEY`
 
 ## Volatility history
 
@@ -55,6 +53,4 @@ Daily 30-day ATM IV with its rank and percentile, realized vol and the close, ol
 | `iv_percentile` | number | Share of the past year's sessions with lower `atm_iv_30d`. |
 | `realized_vol_20d, realized_vol_30d` | number | Close-to-close volatility, annualized. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/options/volatility/history?symbol=NVDA&from=2026-10-01&to=2026-10-31&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/options/volatility/history?symbol=NVDA&from=2026-10-01&to=2026-10-31&apiKey=YOUR_API_KEY`

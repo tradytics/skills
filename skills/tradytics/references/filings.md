@@ -32,9 +32,7 @@ Filings newest first, for the whole market or a few companies, by form, 8-K item
 | `url` | string | The filing on EDGAR. |
 | `document_url` | string | Its main document. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/filings?symbol=AAPL&form=10-K%2C10-Q%2C8-K&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/filings?symbol=AAPL&form=10-K%2C10-Q%2C8-K&apiKey=YOUR_API_KEY`
 
 ## Search filings
 
@@ -61,9 +59,7 @@ Full-text search of every filing and exhibit since 2001: the documents that matc
 | `url` | string | The matching document. |
 | `filing_url` | string | The filing on EDGAR. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/filings/search?q=%22supply%20agreement%22%20AND%20China&form=8-K&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/filings/search?q=%22supply%20agreement%22%20AND%20China&form=8-K&apiKey=YOUR_API_KEY`
 
 ## Filing
 
@@ -90,9 +86,7 @@ One filing with every document and exhibit in it.
 | `document_url` | string | Its main document. |
 | `documents[]` | array | `sequence`, `type` (e.g. `10-K`, `EX-99.1`, `EX-101.INS`), `description`, `url`, and `size_bytes` when available. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/filings/0000320193-25-000079?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/filings/0000320193-25-000079?apiKey=YOUR_API_KEY`
 
 ## Filing sections
 
@@ -111,6 +105,4 @@ Sections of a 10-K, 10-Q or 8-K as plain text. A section asked for the first tim
 | `title` | string | Its heading, e.g. `Risk factors`. |
 | `text` | string | The section's text. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/filings/0000320193-25-000079/sections?section=risk_factors&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/filings/0000320193-25-000079/sections?section=risk_factors&apiKey=YOUR_API_KEY`

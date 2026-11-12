@@ -33,9 +33,7 @@ One company's KPI values, newest first: each fiscal quarter's numbers from its r
 | `accession` | string | The SEC filing, null for tracked. |
 | `quote` | string | The sentence or table row holding the number, as printed. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/kpis?symbol=TSLA&kpi=vehicle_deliveries&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/kpis?symbol=TSLA&kpi=vehicle_deliveries&apiKey=YOUR_API_KEY`
 
 ## KPI definitions
 
@@ -64,6 +62,4 @@ The KPIs covered for each company, the periods they span, and whether the compan
 | `first_period` | string | The earliest period with a value. |
 | `last_period` | string | The latest. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/kpis/definitions?symbol=TSLA&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/kpis/definitions?symbol=TSLA&apiKey=YOUR_API_KEY`

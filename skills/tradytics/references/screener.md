@@ -67,9 +67,7 @@ Filter on any numeric field with `min_<field>` and `max_<field>` (`min_relative_
 | `dark_pool_ask_share_pct, off_exchange_share_pct` | number | Ask-side share of classified prints, and off-exchange share of block value, over five sessions. |
 | `labels` | array | Label ids the row carries. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/screener/stocks?min_relative_volume=2&min_market_cap_usd=1000000000&sort=change_pct&limit=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/screener/stocks?min_relative_volume=2&min_market_cap_usd=1000000000&sort=change_pct&limit=10&apiKey=YOUR_API_KEY`
 
 ## Screener fields
 
@@ -82,6 +80,4 @@ Every field with its group and type, and every label with its group and lean.
 | `fields[]` | array | `name`, `group` (Price, Technical, Options, Dark pool …), `type` (`number`, `string`, `date` or `array`). |
 | `labels[]` | array | `id`, `name`, `group`, `lean` (1 bullish, -1 bearish, 0 neither). |
 
-```bash
-curl "https://tradytics.com/api/public/v1/screener/fields?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/screener/fields?apiKey=YOUR_API_KEY`

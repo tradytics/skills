@@ -15,9 +15,7 @@ Exposure, open positions and the latest 20 posts and letters.
 | `positions[]` | array | Open trades as in Fund trades, without fills. |
 | `posts[]` | array | `id`, `time`, `kind` (`post` or `letter`), `trade_id`, `title`, `markdown`, newest first. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fund?apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fund?apiKey=YOUR_API_KEY`
 
 ## Fund trades
 
@@ -42,6 +40,4 @@ Every trade, open and closed, newest first.
 | `legs[]` | array | `name`, `contract`, `symbol`, `type`, `strike`, `expiry`, `side` (`long` or `short`), `quantity`, `entry_price`, `bid`, `ask`, `mid`. |
 | `fills[]` | array | `name`, `contract`, `symbol`, `type`, `strike`, `expiry`, `side` (`bought` or `sold`), `quantity`, `price`, `time`. |
 
-```bash
-curl "https://tradytics.com/api/public/v1/fund/trades?limit=10&apiKey=$TRADYTICS_API_KEY"
-```
+Request: `GET https://tradytics.com/api/public/v1/fund/trades?limit=10&apiKey=YOUR_API_KEY`
