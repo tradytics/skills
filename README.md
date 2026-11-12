@@ -26,8 +26,6 @@ Ask in plain words: what the options flow says about NVDA today, where SPY's gam
 | [Connector](.mcp.json) | The Tradytics MCP server, https://tradytics.com/mcp. You sign in with your Tradytics account |
 | [Skill](skills/tradytics/SKILL.md) | When and how to call each endpoint, with one reference file per data area |
 
-Market data answers on Tradytics Pro.
-
 ## Data
 
 The connector sends the tickers, dates and filters of each request to tradytics.com and returns market data; you sign in through Tradytics' OAuth page, and the connection shows on your [API keys](https://tradytics.com/developer/keys) page, where you can end it. Without the connector, the skill sends requests to `https://tradytics.com/api/public/v1` with the API key you give it. Nothing is sent anywhere else, and the plugin stores nothing. [Privacy policy](https://tradytics.com/privacy-policy).
