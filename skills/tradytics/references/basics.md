@@ -88,6 +88,14 @@ for await (const p of client.stream(client.options.flow, { min_premium: 250_000 
 
 A failed call raises `TradyticsError` with `status`, `code`, `message` and the request id. `429` and `5xx` answers are retried up to three times, waiting as `Retry-After` says; the daily quota is not retried.
 
+## Coding agents
+
+The [Tradytics skill](https://skills.sh/tradytics/skills/tradytics) gives Claude Code, Codex, Cursor and other agents every endpoint, its parameters and fields, so they call the API without reading these pages.
+
+```bash
+npx skills add tradytics/skills
+```
+
 
 # API keys
 
