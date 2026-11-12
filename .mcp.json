@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tradytics": {
+      "type": "http",
+      "url": "https://tradytics.com/mcp"
+    }
+  }
+}

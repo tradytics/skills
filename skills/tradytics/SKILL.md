@@ -7,6 +7,8 @@ description: "Pull live and historical market data from the Tradytics API: optio
 
 Read-only JSON market data at `https://tradytics.com/api/public/v1`. Docs: https://tradytics.com/docs. OpenAPI: `https://tradytics.com/api/public/v1/openapi.json`.
 
+If the Tradytics connector's tools are available (`get_options_flow`, `get_dealer_positioning`, `get_quotes` and the rest), use them: the same data, signed in, no key. Otherwise call the API as below.
+
 ## Key
 
 - Read it from `TRADYTICS_API_KEY`. If it is unset, ask the user to copy theirs from https://tradytics.com/developer/keys and export it. Calls answer on Tradytics Pro.

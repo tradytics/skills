@@ -1,0 +1,21 @@
+{
+  "name": "tradytics",
+  "displayName": "Tradytics",
+  "version": "1.0.0",
+  "description": "Options flow, dark pool prints, dealer exposure, volatility, prices, fundamentals, SEC filings, insider and Congress trades, and Kalshi and Polymarket odds, from Tradytics.",
+  "author": {
+    "name": "Tradytics",
+    "url": "https://tradytics.com"
+  },
+  "homepage": "https://tradytics.com/docs/libraries#coding-agents",
+  "repository": "https://github.com/tradytics/skills",
+  "license": "MIT",
+  "keywords": [
+    "options flow",
+    "dark pool",
+    "gamma exposure",
+    "stock market data",
+    "sec filings",
+    "prediction markets"
+  ]
+}
